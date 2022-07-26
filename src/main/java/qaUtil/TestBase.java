@@ -20,7 +20,9 @@ public class TestBase {
     {
         try {
             prop = new Properties();
-            fis = new FileInputStream( "C:/Users/fbsye/eclipse-workspace/FatimaCucumberSelenium/src/main/resources/config.properties");
+            fis = new FileInputStream( "C:/Users/fbsye/IntelijProject/TestNG/src/main/resources/config.properties");
+
+
             prop.load(fis);
 
         } catch (IOException e) {
@@ -32,7 +34,7 @@ public class TestBase {
 
         String browserName = prop.getProperty("browser");
         if(browserName.equals("chrome")){
-            System.setProperty("webdriver.chrome.driver", "C://Users//fbsye//eclipse-workspace//FatimaCucumberSelenium//chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "C://Users//fbsye//IntelijProject//TestNG//chromedriver.exe");
             driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.manage().deleteAllCookies();
