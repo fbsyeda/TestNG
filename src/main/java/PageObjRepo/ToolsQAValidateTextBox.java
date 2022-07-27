@@ -1,37 +1,62 @@
 package PageObjRepo;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import qaUtil.TestBase;
+
+import java.time.Duration;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ToolsQAValidateTextBox extends TestBase {
 
-    By Element = By.id("//div[@class='header-text' and text()='Elements']");
-    WebElement element;
-    By Textbox = By.xpath("//div[@class ='element-list collapse show']/ul/li[1]");
-    WebElement textbox;
+    WebDriver driver;
+
+
         By FullName = By.id("userName");
-        WebElement fullname;
+
     By Email = By.id("userEmail");
-    WebElement email;
+
     By CurrentAddress = By.id("currentAddress");
-    WebElement currentaddress;
+
     By Submit = By.id("submit");
-    WebElement submit;
 
-    public void TextBox(){
+    By fullNameLabel = By.id("userName-label");
 
-        element.click();
-        textbox.click();
+
+        //Constructor to access Webdriver and pass driver as a parameter. parameter driver comes from step definition when object of this '
+    // class is created.
+    public ToolsQAValidateTextBox(WebDriver driver){
+        this.driver = driver;
+        //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
-    public void enterFullName(){
-        fullname.sendKeys("Fatima");
+
+
+    public WebElement enterFullName(){
+        return driver.findElement(FullName);
+
 
     }
     public void enterCurrentaddress(){
-        currentaddress.sendKeys("1234");
+        driver.findElement(CurrentAddress).sendKeys("1234");
+
     }
     public void clicksubmit(){
-        submit.click();
+      driver.findElement(Submit).click();
+    }
+
+    public void validateLabel(){
+
+        driver.findElement(fullNameLabel);
+        String ExpectedFullName = "Full Name";
+        String ActualFullNAME = driver.findElement(fullNameLabel).getText();
+        System.out.println(ActualFullNAME);
+        Assert.assertEquals(ActualFullNAME,ExpectedFullName);
+
     }
 }
