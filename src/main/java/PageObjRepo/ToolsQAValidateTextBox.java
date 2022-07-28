@@ -29,6 +29,8 @@ public class ToolsQAValidateTextBox extends TestBase {
     By fullNameLabel = By.id("userName-label");
 
 
+
+
         //Constructor to access Webdriver and pass driver as a parameter. parameter driver comes from step definition when object of this '
     // class is created.
     public ToolsQAValidateTextBox(WebDriver driver){
@@ -59,4 +61,6 @@ public class ToolsQAValidateTextBox extends TestBase {
         Assert.assertEquals(ActualFullNAME,ExpectedFullName);
 
     }
+
+
 }

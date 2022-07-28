@@ -6,3 +6,7 @@ Feature: TextBox
     Then : User validate form label
     And : User click submit
 
+Scenario: Checkbox
+  Given : User should be able to launch browser
+  Then : User click on Checkbox
+  Then : user clik on Home checkbox
