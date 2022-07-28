@@ -10,3 +10,12 @@ Scenario: Checkbox
   Given : User should be able to launch browser
   Then : User click on Checkbox
   Then : user clik on Home checkbox
+
+  Scenario: Radio button
+    Given : User should be able to launch browser
+    Then : User click on Radio Button
+    Then : User validate text before selection
+    Then : User validate Yes and Impression radio button enabled
+    Then : User validate No is dissabled
+    Then : User select Yes
+    #And : User validate text after selection
